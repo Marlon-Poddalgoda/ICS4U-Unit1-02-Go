@@ -18,36 +18,35 @@ func main() {
 	fmt.Println("")
 
 	// variables
-	var logLength float64 = 0
-	var numOfLogs float64 = 0
-	var intOfLogs int = 0
+	var logLength float64
+	var numOfLogs float64
+	var intOfLogs int
 
 	// for loop
 	for {
-	    // Ask for user input
-	    fmt.Print("Valid choices are -> 0.25, 0.5, 1: ")
+		// Ask for user input
+		fmt.Print("Valid choices are -> 0.25, 0.5, 1: ")
 
-	    // Check if user inputted number
-        if _, err := fmt.Scan(&logLength); err == nil {
-            // verify if user picked from options
-            if logLength == shortLog || logLength == mediumLog || logLength == longLog {
-                // calculate number of logs
-                numOfLogs = carryCapacity / (logLength * weightPerMeter)
-                intOfLogs = int(numOfLogs)
-                logLengthStr := fmt.Sprintf("%.2f", logLength)
-                // output
-                fmt.Println("")
-                fmt.Printf("The truck can carry %d logs that are %s meter(s) long.", intOfLogs, logLengthStr)
+		// Check if user inputted number
+		if _, err := fmt.Scan(&logLength); err == nil {
+			// verify if user picked from options
+			if logLength == shortLog || logLength == mediumLog || logLength == longLog {
+				// calculate number of logs
+				numOfLogs = carryCapacity / (logLength * weightPerMeter)
+				intOfLogs = int(numOfLogs)
+				logLengthStr := fmt.Sprintf("%.2f", logLength)
+				// output
+				fmt.Println("")
+				fmt.Printf("The truck can carry %d logs that are %s meter(s) long.", intOfLogs, logLengthStr)
 
-                break
-            } else {
-                fmt.Println("That's not an option!")
-                logLength = 0
-            }
-        } else {
-            fmt.Println("That's not a number!")
-            err = nil
-            logLength = 0
-        }
+				break
+			} else {
+				fmt.Println("That's not an option!")
+				logLength = 0
+			}
+		} else {
+			fmt.Println("That's not a number!")
+			logLength = 0
+		}
 	}
 }
